@@ -12,22 +12,26 @@
     </button>
 
     <script>
+        import fetch from 'node-fetch';
+
         const btn = document.getElementById('btn');
         btn.addEventListener('click', function(){
-            data = `{
+            data = {
                 'client_id': '947931612274905088',
                 'client_secret': 'Bjqlko8qCI7UP6bELE3Od3pTD-aok-Y0',
                 'grant_type': 'authorization_code',
                 'code': code,
                 'redirect_uri': 'https://binary-bytes.github.io/test'
-            }`;
+            };
 
-            let xhr = new XMLHttpRequest();
-            xhr.open("POST", 'https://discord.com/api/v8/oauth2/token');
+            const response = await fetch('https://discord.com/api/v8/oauth2/token', {
+                method: 'post',
+                body: JSON.stringify(data),
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+            });
 
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-            xhr.send(data);
+            const res = await response.json();
+            console.log(res);
         });
     </script>
 </body>
