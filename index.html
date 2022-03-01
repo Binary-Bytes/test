@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body>
+    <button id="btn">
+        authorize
+    </button>
+
+    <script>
+        const btn = document.getElementById('btn');
+        btn.addEventListener('click', function(){
+            window.open('https://discord.com/api/oauth2/authorize?response_type=code&client_id=947931612274905088&scope=messages.read&state=15773059ghq9183habn&redirect_uri=https%3A%2F%2FBinary-Bytes.github.io%2Ftest&prompt=consent');
+        });
+    </script>
+</body>
+</html>
