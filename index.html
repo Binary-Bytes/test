@@ -23,14 +23,9 @@
             }`;
 
             let xhr = new XMLHttpRequest();
-            xhr.open("POST", 'https://discord.com/api/oauth2/authorize');
+            xhr.open("POST", 'https://discord.com/api/v8/oauth2/token');
 
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4) {
-                    console.log(xhr.responseText);
-                }};
 
             xhr.send(data);
         });
