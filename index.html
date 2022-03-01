@@ -14,7 +14,25 @@
     <script>
         const btn = document.getElementById('btn');
         btn.addEventListener('click', function(){
-            window.open('https://discord.com/api/oauth2/token?response_type=code&client_id=947931612274905088&scope=messages.read&state=15773059ghq9183habn&redirect_uri=https%3A%2F%2FBinary-Bytes.github.io%2Ftest&prompt=consent');
+            data = `{
+                'client_id': '947931612274905088',
+                'client_secret': 'Bjqlko8qCI7UP6bELE3Od3pTD-aok-Y0',
+                'grant_type': 'authorization_code',
+                'code': code,
+                'redirect_uri': 'https://binary-bytes.github.io/test'
+            }`;
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", 'https://discord.com/api/oauth2/');
+
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    console.log(xhr.responseText);
+                }};
+
+            xhr.send(data);
         });
     </script>
 </body>
